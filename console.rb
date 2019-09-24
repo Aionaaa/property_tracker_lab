@@ -1,12 +1,12 @@
 require('pry')
 require_relative('models/property_tracker.rb')
 
-property1 = Property.new({
-  "address" => "10 Downing Street",
-  "no_of_bedrooms" => 6,
-  "year_built" => 1684,
-  "buy_or_let" => "let"
-  })
+  property1 = Property.new({
+    "address" => "10 Downing Street",
+    "no_of_bedrooms" => 6,
+    "year_built" => 1684,
+    "buy_or_let" => "let"
+    })
 
   property1.save()
 
