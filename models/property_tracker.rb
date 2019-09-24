@@ -76,7 +76,16 @@ class Property
     return results.map{|property| Property.new(property)}
   end
 
-
+  def Property.find_by_address(target_address)
+    db = PG.connect({dbname: 'property_tracker', host: 'localhost'})
+    sql =
+    "SELECT * FROM property_tracker WHERE address = $1 LIMIT 1"
+    values = [target_address]
+    db.prepare("find_by_address", sql)
+    results = db.exec_prepared("find_by_address", values)
+    db.close()
+    return results.map{|property| Property.new(property)}
+  end
 
 
 
